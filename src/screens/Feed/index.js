@@ -1,6 +1,13 @@
 import React from 'react';
-import { View, FlatList, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
-
+import {
+  View,
+  SafeAreaView,
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity
+} from 'react-native';
 
 import options from '../../../assets/options.png';
 import like from '../../../assets/like.png';
@@ -8,61 +15,55 @@ import comment from '../../../assets/comment.png';
 import send from '../../../assets/send.png';
 import save from '../../../assets/save.png';
 
-
-
 function Feed() {
-
   const posts = [
     {
       id: '1',
-      author: 'Romulo2902',
-      place: 'Cinema ParkShopping',
-      picture_url: 'https://i.pinimg.com/originals/95/4e/d2/954ed254568aa95900c70d96db52f09d.jpg',
-      likes: '1224',
-      description: 'Saiu o Filme do batman!!',
-      hashtags: '#Batman, #Cinema'
+      author: 'romulo2902',
+      picture_url:
+        'https://observatoriodocinema.bol.uol.com.br/wp-content/uploads/2019/08/69047060_359538678332469_1243013082205126656_n.png',
+      likes: 1272,
+      description: 'Saiu o filme do coringa!!!',
+      hashtags: '#cinema #joker',
+      place: 'Cinema do Shopping'
     },
     {
       id: '2',
-      author: 'Romulo2902',
-      place: 'Cinema ParkShopping',
-      picture_url: 'https://img.ibxk.com.br/2019/08/28/joker-28142325046399.jpg?w=704',
-      likes: '765',
-      description: 'Coringa Em Breve',
-      hashtags: '#Joker, #Cinema'
+      author: 'romulo2902',
+      picture_url:
+        'https://s2.glbimg.com/VUgvvuWb7QZ_q0Rfqg_EHLIV32U=/top/e.glbimg.com/og/ed/f/original/2019/08/05/angelina1.png',
+      likes: 784,
+      description: 'Saiu o filme malevola!!!',
+      hashtags: '#cinema #malevola',
+      place: 'Cinema do Shopping'
     },
-
     {
       id: '3',
-      author: 'Romulo2902',
-      place: 'Cinema ParkShopping',
-      picture_url: 'https://cinepop.com.br/wp-content/uploads/2019/08/maleficent_mistress_of_evil_ver6_xlg.jpg',
-      likes: '812',
-      description: 'Malévola Em Breve',
-      hashtags: '#Malévola, #Cinema'
-    },
+      author: 'romulo2902',
+      picture_url:
+        'http://br.web.img3.acsta.net/pictures/19/05/07/20/54/2901026.jpg',
+      likes: 397,
+      description: 'Saiu o filme rei leão!!!',
+      hashtags: '#cinema #reileao',
+      place: 'Cinema do Shopping'
+    }
   ];
 
   function renderItem({ item: post }) {
     return (
-      <View>
-
+      <View style={styles.post}>
         <View style={styles.postHeader}>
           <View style={styles.userInfo}>
             <Text style={styles.author}>{post.author}</Text>
             <Text style={styles.place}>{post.place}</Text>
           </View>
 
-
           <View style={styles.postOptions}>
             <TouchableOpacity>
               <Image source={options} />
             </TouchableOpacity>
           </View>
-
         </View>
-
-
 
         <View>
           <Image
@@ -73,7 +74,7 @@ function Feed() {
 
         <View style={styles.footer}>
           <View style={styles.actions}>
-            <View style={styles.leftAction}>
+            <View style={styles.leftActions}>
               <TouchableOpacity style={styles.action}>
                 <Image source={like} />
               </TouchableOpacity>
@@ -90,96 +91,80 @@ function Feed() {
                 <Image source={save} />
               </TouchableOpacity>
             </View>
-
-
           </View>
 
-          <View >
+          <View>
             <Text style={styles.likes}>{post.likes} likes</Text>
-            <Text style={styles.hashtags}>{post.hashtags} </Text>
-            <Text style={styles.comment}>{post.description} </Text>
-            
+            <Text style={styles.hashtags}>{post.hashtags}</Text>
+            <Text style={styles.description}>{post.description}</Text>
           </View>
-
         </View>
-
-
-
       </View>
-
-
     );
   }
+
   return (
-    <View>
+    <SafeAreaView>
       <FlatList
         data={posts}
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
         renderItem={renderItem}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
-
 const styles = StyleSheet.create({
+  post: {
+    marginVertical: 15
+  },
   postHeader: {
     flexDirection: 'row',
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     paddingHorizontal: 15,
     alignItems: 'center',
-    marginBottom:15,
-
-
+    marginBottom: 15
   },
   postOptions: {},
   userInfo: {},
   author: {
     fontSize: 14,
     color: '#000',
-    fontWeight: 'bold',
-    marginTop:14,
+    fontWeight: 'bold'
   },
   place: {
     fontSize: 12,
-    color: '#666',
+    color: '#666'
   },
   picture_url: {
     width: '100%',
     height: 400
   },
   footer: {
-    paddingHorizontal: 15,
-    
+    paddingHorizontal: 15
   },
   actions: {
     flexDirection: 'row',
-    justifyContent: "space-between",
-    paddingVertical: 15,
+    justifyContent: 'space-between',
+    paddingVertical: 15
   },
   action: {
-    marginRight: 8,
+    marginRight: 8
   },
-
-  leftAction: {
-    flexDirection: 'row',
+  leftActions: {
+    flexDirection: 'row'
   },
-  likes:{
-      fontWeight:'bold',
-      fontSize:12,
+  likes: {
+    fontWeight: 'bold',
+    fontSize: 12
   },
-  hashtags:{
-    color:'#002D5E',
+  hashtags: {
+    color: '#002D5E'
   },
-description:{
-  color:'#000',
-  lineHeight: 18,
-
-
-},
-
-
-})
-
+  description: {
+    color: '#000',
+    lineHeight: 18
+  }
+});
 
 export default Feed;
