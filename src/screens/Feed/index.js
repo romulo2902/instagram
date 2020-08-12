@@ -31,6 +31,16 @@ function Feed() {
       description: 'Coringa Em Breve',
       hashtags: '#Joker, #Cinema'
     },
+
+    {
+      id: '3',
+      author: 'Romulo2902',
+      place: 'Cinema ParkShopping',
+      picture_url: 'https://cinepop.com.br/wp-content/uploads/2019/08/maleficent_mistress_of_evil_ver6_xlg.jpg',
+      likes: '812',
+      description: 'Malévola Em Breve',
+      hashtags: '#Malévola, #Cinema'
+    },
   ];
 
   function renderItem({ item: post }) {
@@ -128,6 +138,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#000',
     fontWeight: 'bold',
+    marginTop:14,
   },
   place: {
     fontSize: 12,
