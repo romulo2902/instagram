@@ -25,10 +25,10 @@ const MainNavigator = createStackNavigator(
       ),
       headerRight: (
         <>
-          <TouchableOpacity style={{ marginRight: 20, flexDirection: 'row' }}>
+          <TouchableOpacity style={{ marginRight: 20  }}>
             <Image source={igtv} />
           </TouchableOpacity>
-          <TouchableOpacity style={{ marginRight: 20, flexDirection: 'row', }}>
+          <TouchableOpacity style={{ marginRight: 20 }}>
             <Image source={send} />
           </TouchableOpacity>
         </>
